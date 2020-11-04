@@ -23,4 +23,4 @@ COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
 FROM redis:latest
 EXPOSE 1324
-EXPOSE 9826/tcp
+EXPOSE 9826/tcp 500 25/udP
