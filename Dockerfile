@@ -21,6 +21,8 @@ COPY ./nginx.config /etc/nginx/conf.d/default.conf
 COPY --from=builder /usr/src/app/public /usr/share/nginx/html
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
+ENV PORT 2512
 FROM redis:latest
 EXPOSE 1324
 EXPOSE 9826/tcp 500 25/udP
+EXPOSE $PORT
