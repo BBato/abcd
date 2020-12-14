@@ -4,6 +4,9 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
+ENV PORT2 2512
+ENV PORT3 $PORT2
+
 # Copy files required for package install
 COPY package.json  .
 COPY yarn.lock .
@@ -21,8 +24,7 @@ COPY ./nginx.config /etc/nginx/conf.d/default.conf
 COPY --from=builder /usr/src/app/public /usr/share/nginx/html
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
-ENV PORT 2512
 FROM redis:latest
 EXPOSE 1324
 EXPOSE 25/udP 9826 
-EXPOSE $PORT
+EXPOSE $PORT3
