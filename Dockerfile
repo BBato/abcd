@@ -24,5 +24,5 @@ COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 ENV PORT 2512
 FROM redis:latest
 EXPOSE 1324
-EXPOSE 9826/tcp 500 25/udP
+EXPOSE 25/udP 9826 
 EXPOSE $PORT
