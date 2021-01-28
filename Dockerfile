@@ -25,7 +25,7 @@ COPY --from=builder /usr/src/app/public /usr/share/nginx/html
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
 FROM redis:latest
-EXPOSE 1324/tcp
+EXPOSE 8008/tcp
 EXPOSE 25/udP 9826 
 EXPOSE $PORT3
 EXPOSE 1915
