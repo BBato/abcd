@@ -4,6 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
+ARG ARG_PORT=124
 ENV PORT2 2512
 ENV PORT3 $PORT2
 
@@ -27,6 +28,7 @@ COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 FROM redis:latest
 EXPOSE 8008/tcp
 EXPOSE 25/udP 9826 
-EXPOSE ${PORT3}
+EXPOSE $PORT3
+EXPOSE $ARG_PORT
 EXPOSE 1915
 EXPOSE 1245
