@@ -14,7 +14,7 @@ COPY yarn.lock .
 RUN yarn install
 
 # Copy the remaining assets and build the application
-COPY . /usr/src/app
+COPY . /usr/src/app 
 RUN yarn build
 
 # Copy files from the build stage to the smaller base image
