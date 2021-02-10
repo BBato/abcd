@@ -18,7 +18,7 @@ COPY . /usr/src/app
 RUN yarn build
 
 # Copy files from the build stage to the smaller base image
-FROM nginx:mainline-alpine
+FROM nginx:mainline-alpinea
 WORKDIR /usr/src/app
 RUN apk --no-cache add curl 
 COPY ./nginx.config /etc/nginx/conf.d/default.conf
